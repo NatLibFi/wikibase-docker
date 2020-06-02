@@ -1,0 +1,22 @@
+kind: pipeline
+name: default
+steps:
+- name: generate-tags
+  image: quay.io/natlibfi/drone-gen-tags
+- name: docker 
+  image: plugins/docker
+  settings:
+    repo: quay.io/natlibfi/wikibase-quickstatements:qs-fix
+    registry: quay.io
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+---
+kind: secret
+name: docker_username
+data: XIT4R1tvQC+Sc/lALYNUJxH1VQq84HLt0cbb9erXXjGJouFcAUX2nATIbkNwcCZM/8yDG8lISjiwFw==
+---
+kind: secret
+name: docker_password
+data: MdHdDJ1fijMA3AFD+psYIG5ErgJt54WCczu8IhYKJW+2bo6TB3+63DtR+uSBnQZIZGOjmtY0BuwBCRjrR13+oc14HLJWW1jO4fwSko3wcHLmA90b7x1qm3HX8Yo=
