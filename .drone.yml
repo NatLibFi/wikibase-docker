@@ -6,8 +6,7 @@ steps:
 - name: docker 
   image: plugins/docker
   settings:
-    context: repo/quickstatements/latest
-    dockerfile: Dockerfile
+    dockerfile: repo/quickstatements/latest/Dockerfile
     repo: quay.io/natlibfi/wikibase-quickstatements:qs-fix
     registry: quay.io
     username:
