@@ -6,12 +6,13 @@ steps:
 - name: docker 
   image: plugins/docker
   settings:
+    dockerfile: repo/Dockerfile
     repo: quay.io/natlibfi/wikibase-quickstatements:qs-fix
     registry: quay.io
     username:
       from_secret: docker_username
     password:
-      from_secret: docker_password
+      from_secret: docker_password      
 ---
 kind: secret
 name: docker_username
