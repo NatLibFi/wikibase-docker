@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+echo "entrypoint.sh";
 # Test if required environment variables have been set
 REQUIRED_VARIABLES=(QS_PUBLIC_SCHEME_HOST_AND_PORT WB_PUBLIC_SCHEME_HOST_AND_PORT WIKIBASE_SCHEME_AND_HOST WB_PROPERTY_NAMESPACE WB_PROPERTY_PREFIX WB_ITEM_NAMESPACE WB_ITEM_PREFIX)
 for i in ${REQUIRED_VARIABLES[@]}; do
@@ -11,6 +11,7 @@ done
 
 if [[ -v OAUTH_CONSUMER_KEY && OAUTH_CONSUMER_SECRET ]]; then
     envsubst < /templates/oauth.ini > /quickstatements/data/oauth.ini;
+    echo "variables set";
 fi
 
 envsubst < /templates/config.json > /var/www/html/quickstatements/public_html/config.json
