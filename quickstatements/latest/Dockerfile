@@ -5,7 +5,7 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://phabricator.wikimedia.org/source/tool-quickstatements.git quickstatements
-RUN git clone --depth 1 https://bitbucket.org/magnusmanske/magnustools.git magnustools
+RUN git clone https://bitbucket.org/magnusmanske/magnustools.git && cd magnustools && git checkout 469a45747838ea531471f5bf6d2579b522964e2a
 
 RUN rm -rf quickstatements/.git
 RUN rm -rf magnustools/.git
